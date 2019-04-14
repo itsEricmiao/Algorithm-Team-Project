@@ -50,8 +50,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../team_project/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../team_project/main.cpp \
+		../team_project/gameboard.cpp 
+OBJECTS       = main.o \
+		gameboard.o
 DIST          = ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/common/unix.conf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/common/linux.conf \
@@ -215,6 +217,7 @@ DIST          = ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_post.prf \
+		../team_project/.qmake.stash \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -228,7 +231,8 @@ DIST          = ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/lex.prf \
-		../team_project/team_project.pro  ../team_project/main.cpp
+		../team_project/team_project.pro gameboard.h ../team_project/main.cpp \
+		../team_project/gameboard.cpp
 QMAKE_TARGET  = team_project
 DESTDIR       = 
 TARGET        = team_project
@@ -403,6 +407,7 @@ Makefile: ../team_project/team_project.pro ../../../Qt/5.10.0/gcc_64/mkspecs/lin
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -581,6 +586,7 @@ Makefile: ../team_project/team_project.pro ../../../Qt/5.10.0/gcc_64/mkspecs/lin
 ../../../Qt/5.10.0/gcc_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.10.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.10.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.10.0/gcc_64/mkspecs/features/toolchain.prf:
 ../../../Qt/5.10.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -638,8 +644,11 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../team_project/main.cpp 
+main.o: ../team_project/main.cpp ../team_project/gameboard.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../team_project/main.cpp
+
+gameboard.o: ../team_project/gameboard.cpp ../team_project/gameboard.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gameboard.o ../team_project/gameboard.cpp
 
 ####### Install
 
