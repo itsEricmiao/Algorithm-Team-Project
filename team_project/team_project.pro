@@ -5,7 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
-    gameboard.cpp
+    gameboard.cpp \
+    player.cpp
 
 HEADERS += \
-    gameboard.h
+    gameboard.h \
+    player.h

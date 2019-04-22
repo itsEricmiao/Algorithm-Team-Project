@@ -3,6 +3,10 @@
 #include <string>
 #include <vector>
 using namespace std;
+
+/*
+    Default constructor for GameBoard
+*/
 GameBoard::GameBoard()
 {
     vector<string> sampleRow;
@@ -15,9 +19,12 @@ GameBoard::GameBoard()
     {
         board.push_back(sampleRow);
     }
-
 }
 
+
+/*
+    displayBoard function is for printing the game board
+*/
 void GameBoard::displayBoard()
 {
     cout<<"=====Game Board====="<<endl;

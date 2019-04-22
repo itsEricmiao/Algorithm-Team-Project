@@ -51,9 +51,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../team_project/main.cpp \
-		../team_project/gameboard.cpp 
+		../team_project/gameboard.cpp \
+		../team_project/player.cpp 
 OBJECTS       = main.o \
-		gameboard.o
+		gameboard.o \
+		player.o
 DIST          = ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/common/unix.conf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/common/linux.conf \
@@ -231,8 +233,10 @@ DIST          = ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/lex.prf \
-		../team_project/team_project.pro gameboard.h ../team_project/main.cpp \
-		../team_project/gameboard.cpp
+		../team_project/team_project.pro gameboard.h \
+		player.h ../team_project/main.cpp \
+		../team_project/gameboard.cpp \
+		../team_project/player.cpp
 QMAKE_TARGET  = team_project
 DESTDIR       = 
 TARGET        = team_project
@@ -649,6 +653,9 @@ main.o: ../team_project/main.cpp ../team_project/gameboard.h
 
 gameboard.o: ../team_project/gameboard.cpp ../team_project/gameboard.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gameboard.o ../team_project/gameboard.cpp
+
+player.o: ../team_project/player.cpp ../team_project/player.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o player.o ../team_project/player.cpp
 
 ####### Install
 

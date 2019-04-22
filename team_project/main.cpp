@@ -6,6 +6,5 @@ int main()
 {
     GameBoard board = GameBoard();
     board.displayBoard();
-    cout << "Hello World!" << endl;
     return 0;
 }
