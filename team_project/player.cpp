@@ -11,9 +11,10 @@ Player::Player()
 /*
     Constrcutor
 */
-Player::Player(string name)
+Player::Player(string name, string icon)
 {
     player_name = name;
+    token = icon;
 }
 
 
@@ -25,6 +26,11 @@ void Player::set_name(string name)
     player_name = name;
 }
 
+
+void Player::set_token(string icon)
+{
+    token = icon;
+}
 /*
     Check and see if player wins
 */

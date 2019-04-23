@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    GameBoard board = GameBoard();
+    GameBoard board = GameBoard(20,20);
     board.displayBoard();
     return 0;
 }

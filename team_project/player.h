@@ -8,11 +8,13 @@ class Player
 {
 private:
     string player_name;
+    string token;
     bool win;
 public:
     Player();
-    Player(string name);
+    Player(string name, string icon);
     void set_name(string name);
+    void set_token(string symbol);
     bool ifWin();
 };
 
