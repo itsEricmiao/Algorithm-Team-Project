@@ -6,8 +6,10 @@ CONFIG -= qt
 SOURCES += \
         main.cpp \
     gameboard.cpp \
-    player.cpp
+    player.cpp \
+    gamelauncher.cpp
 
 HEADERS += \
     gameboard.h \
-    player.h
+    player.h \
+    gamelauncher.h

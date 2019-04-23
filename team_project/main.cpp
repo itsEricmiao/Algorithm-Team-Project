@@ -1,10 +1,10 @@
 #include <iostream>
-#include <gameboard.h>
+#include <gamelauncher.h>
 using namespace std;
 
 int main()
 {
-    GameBoard board = GameBoard(20,20);
-    board.displayBoard();
+    GameLauncher launchaer = GameLauncher(10,10);
+    launchaer.start_game();
     return 0;
 }

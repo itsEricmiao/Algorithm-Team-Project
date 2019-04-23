@@ -52,10 +52,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../team_project/main.cpp \
 		../team_project/gameboard.cpp \
-		../team_project/player.cpp 
+		../team_project/player.cpp \
+		../team_project/gamelauncher.cpp 
 OBJECTS       = main.o \
 		gameboard.o \
-		player.o
+		player.o \
+		gamelauncher.o
 DIST          = ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/common/unix.conf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/common/linux.conf \
@@ -234,9 +236,11 @@ DIST          = ../../../Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.10.0/gcc_64/mkspecs/features/lex.prf \
 		../team_project/team_project.pro gameboard.h \
-		player.h ../team_project/main.cpp \
+		player.h \
+		gamelauncher.h ../team_project/main.cpp \
 		../team_project/gameboard.cpp \
-		../team_project/player.cpp
+		../team_project/player.cpp \
+		../team_project/gamelauncher.cpp
 QMAKE_TARGET  = team_project
 DESTDIR       = 
 TARGET        = team_project
@@ -648,14 +652,22 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../team_project/main.cpp ../team_project/gameboard.h
+main.o: ../team_project/main.cpp ../team_project/gamelauncher.h \
+		../team_project/gameboard.h \
+		../team_project/player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../team_project/main.cpp
 
-gameboard.o: ../team_project/gameboard.cpp ../team_project/gameboard.h
+gameboard.o: ../team_project/gameboard.cpp ../team_project/gameboard.h \
+		../team_project/player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gameboard.o ../team_project/gameboard.cpp
 
 player.o: ../team_project/player.cpp ../team_project/player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o player.o ../team_project/player.cpp
+
+gamelauncher.o: ../team_project/gamelauncher.cpp ../team_project/gamelauncher.h \
+		../team_project/gameboard.h \
+		../team_project/player.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gamelauncher.o ../team_project/gamelauncher.cpp
 
 ####### Install
 
