@@ -31,6 +31,18 @@ void Player::set_token(string icon)
 {
     token = icon;
 }
+
+
+string Player::get_name()
+{
+    return player_name;
+}
+
+string Player::get_token()
+{
+    return token;
+}
+
 /*
     Check and see if player wins
 */

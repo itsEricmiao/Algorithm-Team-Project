@@ -27,12 +27,12 @@ GameBoard::GameBoard()
 GameBoard::GameBoard(int row, int col)
 {
     vector<string> sampleRow;
-    for(int i = 0; i < row; i++)
+    for(int i = 0; i < col; i++)
     {
         sampleRow.push_back("| |");
     }
 
-    for(int j = 0; j < col; j++)
+    for(int j = 0; j < row; j++)
     {
         board.push_back(sampleRow);
     }
@@ -56,9 +56,9 @@ void GameBoard::displayBoard()
         cout<<endl;
     }
     //Printing the col of the gameboard
-        for(int i = 0; i < board.size(); i++)
+        for(int i = 0; i < board[0].size(); i++)
         {
-            if(i <9)
+            if(i < 9)
             {
                  cout<<" "<<i+1<<" ";
             }else
@@ -69,10 +69,22 @@ void GameBoard::displayBoard()
         cout<<endl;
 }
 
-
-void GameBoard::makeMove(Player player)
+int GameBoard::get_max_col()
 {
+    return board.size();
+}
 
-
+bool GameBoard::makeMove(Player player, int target)
+{
+    for(int i = board.size()-1; i >= 0; i--)
+    {
+        if(board[i][target] == "| |")
+        {
+            cout<<"Place the token in ["<<i<<"]"<<endl;
+            board[i][target-1] = player.get_token();
+            return true;
+        }
+    }
+    return false;
 }
 

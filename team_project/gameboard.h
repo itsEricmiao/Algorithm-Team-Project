@@ -15,9 +15,10 @@ public:
     GameBoard();
     GameBoard(int row, int col);
 
-    void makeMove(Player player);
+    bool makeMove(Player player, int target);
     void displayBoard();
     bool ifWin(string player);
+    int get_max_col();
 
 };
 
