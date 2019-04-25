@@ -78,9 +78,8 @@ bool GameBoard::makeMove(Player player, int target)
 {
     for(int i = board.size()-1; i >= 0; i--)
     {
-        if(board[i][target] == "| |")
+        if(board[i][target-1] == "| |")
         {
-            cout<<"Place the token in ["<<i<<"]"<<endl;
             board[i][target-1] = player.get_token();
             return true;
         }

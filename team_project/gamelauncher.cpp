@@ -28,23 +28,29 @@ void GameLauncher::set_Players_names(string player1_name, string player2_name)
 void GameLauncher:: start_game()
 {
     int counter = 0;
-    while(true)
+    bool ifContinue = true;
+    bool valid;
+    while(ifContinue)
     {
         theBoard.displayBoard();
         if(counter % 2 == 1)
         {
             int option = get_user_input(player1);
-            theBoard.makeMove(player1, option);
+            valid = theBoard.makeMove(player1, option);
         }else
         {
             int option = get_user_input(player2);
-            theBoard.makeMove(player2, option);
+            valid = theBoard.makeMove(player2, option);
         }
-        counter ++;
-
+        if(!valid)
+        {
+           cout<<"The column is full, please select another one."<<endl;
+        }else if (valid)
+        {
+            counter ++;
+        }
 
     }
-
 }
 
 int GameLauncher:: get_user_input(Player player)
