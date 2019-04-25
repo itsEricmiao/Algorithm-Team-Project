@@ -17,8 +17,10 @@ public:
 
     bool makeMove(Player player, int target);
     void displayBoard();
-    bool ifWin(string player);
+    bool checkIfWin(Player player);
     int get_max_col();
+    bool checkHorizontalWin(Player player);
+    bool checkVerticalWin(Player player);
 
 };
 

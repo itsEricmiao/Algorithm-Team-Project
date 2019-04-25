@@ -18,6 +18,7 @@ public:
     void set_Players_names(string player1_name, string player2_name);
     void start_game();
     int get_user_input(Player player);
+    bool checkIfWin(Player player);
 };
 
 #endif // GAMELAUNCHER_H

@@ -87,3 +87,50 @@ bool GameBoard::makeMove(Player player, int target)
     return false;
 }
 
+bool GameBoard::checkIfWin(Player player)
+{
+    bool checkH = checkHorizontalWin(player);
+    bool checkV = checkIfWin(player);
+    if(checkH || checkV)
+    {
+        return true;
+    }
+    return false;
+}
+
+//checks for a horizontal 4-match
+bool GameBoard::checkHorizontalWin(Player player)
+{
+    for(int i = 0; i < board.size(); i++)
+    {
+        for(int j = 0; j < board[i].size()-3; j++)
+        {
+            if(board[i][j] == player.get_token() && board[i][j+1] == player.get_token()&&
+                    board[i][j+2] == player.get_token() && board[i][j+3] == player.get_token())
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
+//checks for a Vertical 4-match
+bool GameBoard::checkVerticalWin(Player player)
+{
+    //loop through each column
+    for(int i = 0; i < board[0].size(); i++)
+    {
+        for(int j = 0; j < board[i].size(); j++)
+        {
+            if(board[i][j] == player.get_token() && board[i+1][j] == player.get_token()&&
+                    board[i+2][j] == player.get_token() && board[i+3][j] == player.get_token())
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+
+}
