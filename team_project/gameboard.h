@@ -19,8 +19,11 @@ public:
     void displayBoard();
     bool checkIfWin(Player player);
     int get_max_col();
+
     bool checkHorizontalWin(Player player);
     bool checkVerticalWin(Player player);
+    bool checkDiagnalLeftToRight(Player player);
+    bool checkDiagnalRightToLeft(Player player);
 
 };
 

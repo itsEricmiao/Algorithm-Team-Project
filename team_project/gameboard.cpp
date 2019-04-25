@@ -134,5 +134,14 @@ bool GameBoard::checkVerticalWin(Player player)
         }
     }
     return false;
+}
+
+bool GameBoard::checkDiagnalLeftToRight(Player player)
+{
+
+}
+
+bool GameBoard::checkDiagnalRightToLeft(Player player)
+{
 
 }
