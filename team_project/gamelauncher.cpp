@@ -44,13 +44,14 @@ void GameLauncher:: start_game()
     int counter = 0;
     bool ifContinue = true;
     bool valid;
+    theBoard.displayBoard();
     while(ifContinue)
     {
-        theBoard.displayBoard();
         if(counter % 2 == 1)
         {
             int option = get_user_input(player1);
             valid = theBoard.makeMove(player1, option);
+            theBoard.displayBoard();
             bool ifWin = theBoard.checkIfWin(player1);
             if(ifWin)
             {
@@ -61,6 +62,7 @@ void GameLauncher:: start_game()
         {
             int option = get_user_input(player2);
             valid = theBoard.makeMove(player2, option);
+            theBoard.displayBoard();
             bool ifWin = theBoard.checkIfWin(player2);
             if(ifWin)
             {
