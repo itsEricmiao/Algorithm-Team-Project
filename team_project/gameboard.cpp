@@ -56,17 +56,17 @@ void GameBoard::displayBoard()
         cout<<endl;
     }
     //Printing the col of the gameboard
-        for(int i = 0; i < board[0].size(); i++)
+    for(int i = 0; i < board[0].size(); i++)
+    {
+        if(i < 9)
         {
-            if(i < 9)
-            {
-                 cout<<" "<<i+1<<" ";
-            }else
-            {
-                cout<<i+1<<" ";
-            }
+            cout<<" "<<i+1<<" ";
+        }else
+        {
+            cout<<i+1<<" ";
         }
-        cout<<endl;
+    }
+    cout<<endl;
 }
 
 int GameBoard::get_max_col()
@@ -91,13 +91,13 @@ bool GameBoard::checkIfWin(Player player)
 {
     bool checkH = checkHorizontalWin(player);
     bool checkV = checkVerticalWin(player);
-    if(checkH || checkV)
+    bool checkL = checkDiagnalLeftToRight(player);
+    bool checkR = checkDiagnalRightToLeft(player);
+    if(checkH || checkV || checkL || checkR)
     {
         return true;
     }
-
     return false;
-    return checkV;
 }
 
 //checks for a horizontal 4-match
@@ -138,10 +138,29 @@ bool GameBoard::checkVerticalWin(Player player)
 
 bool GameBoard::checkDiagnalLeftToRight(Player player)
 {
-
+    for (int i=3; i<board[0].size(); i++){
+        for (int j=0; j<board.size()-3; j++){
+            if (board[i][j] == player.get_token() && board[i-1][j+1] == player.get_token() &&
+                    board[i-2][j+2] == player.get_token() && board[i-3][j+3] == player.get_token())
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
+
 
 bool GameBoard::checkDiagnalRightToLeft(Player player)
 {
-
+    for (int i=3; i<board[0].size(); i++){
+        for (int j=3; j<board.size(); j++){
+            if (board[i][j] ==  player.get_token() && board[i-1][j-1] ==  player.get_token() &&
+                    board[i-2][j-2] ==  player.get_token() && board[i-3][j-3] ==  player.get_token())
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
