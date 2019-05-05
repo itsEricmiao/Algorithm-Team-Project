@@ -17,6 +17,8 @@ public:
     void set_Players_tokens(string player1_token, string player2_token);
     void set_Players_names(string player1_name, string player2_name);
     void start_game();
+    void set_AI_Player_game();
+    void set_two_Player_game();
     int get_user_input(Player player);
     bool checkIfWin(Player player);
 };

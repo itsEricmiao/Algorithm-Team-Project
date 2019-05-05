@@ -81,6 +81,21 @@ void GameLauncher:: start_game()
     }
 }
 
+void GameLauncher::set_two_Player_game()
+{
+    string player_name1;
+    string player_name2;
+    cout<<"Player 1: Please type in your name: ";
+    cin>>player_name1;
+    cout<<"Player 2: Please type in your name: ";
+    cin>>player_name2;
+    set_Players_names(player_name2,player_name1);
+}
+
+void GameLauncher::set_AI_Player_game()
+{
+
+}
 /*
     Getting user input
 */
